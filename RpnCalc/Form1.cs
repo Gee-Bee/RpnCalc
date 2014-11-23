@@ -52,34 +52,35 @@ namespace RpnCalc
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == Convert.ToChar(decimalSeparator))
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == Convert.ToChar(decimalSeparator) || e.KeyChar == '.')
                 calc.appendNumber(e.KeyChar.ToString());
             else
             {
                 switch (e.KeyChar)
                 {
                     case '+':
-                        safely(calc.Sum);
+                        safely(calc.Add);
                         break;
                     case '-':
-                        safely(calc.Difference);
+                        safely(calc.Subtract);
                         break;
                     case '*':
-                        safely(calc.Product);
+                        safely(calc.Multiply);
                         break;
                     case '/':
-                        safely(calc.Quotient);
+                        safely(calc.Divide);
                         break;
                 }
             }
 
         }
 
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {   
                 case Keys.Enter:
+                    e.Handled = true;
                     calc.Push();
                     break;
                 case Keys.Back:
@@ -96,24 +97,24 @@ namespace RpnCalc
             calc.Reset();
         }
 
-        private void sum_Click(object sender, EventArgs e)
+        private void add_Click(object sender, EventArgs e)
         {
-            safely(calc.Sum);
+            safely(calc.Add);
         }
 
-        private void difference_Click(object sender, EventArgs e)
+        private void subtract_Click(object sender, EventArgs e)
         {
-            safely(calc.Difference);
+            safely(calc.Subtract);
         }
 
-        private void product_Click(object sender, EventArgs e)
+        private void multiply_Click(object sender, EventArgs e)
         {
-            safely(calc.Product);
+            safely(calc.Multiply);
         }
 
-        private void quotient_Click(object sender, EventArgs e)
+        private void divide_Click(object sender, EventArgs e)
         {
-            safely(calc.Quotient);
+            safely(calc.Divide);
         }
 
         private void negate_Click(object sender, EventArgs e)
@@ -124,6 +125,11 @@ namespace RpnCalc
         private void invert_Click(object sender, EventArgs e)
         {
             safely(calc.Invert);
+        }
+
+        private void dateAdd_Click(object sender, EventArgs e)
+        {
+            safely(calc.DateAdd);
         }
 
     }

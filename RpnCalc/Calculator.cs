@@ -68,55 +68,65 @@ namespace RpnCalc
             display.Draw();
         }
 
-        public void Sum()
+        public void Add()
         {
             requireArguments(2);
-            decimal sum = opdStack.Pop().ToNumber() + opdStack.Pop().ToNumber();
-            opdStack.Push(new Operand(sum.ToString()));
+            double sum = opdStack.Pop().ToNumber() + opdStack.Pop().ToNumber();
+            opdStack.Push(new Operand(sum));
             display.Draw();
         }
 
-        public void Difference()
+        public void Subtract()
         {
             requireArguments(2);
-            decimal last = opdStack.Pop().ToNumber();
-            decimal previous = opdStack.Pop().ToNumber();
-            decimal difference = previous - last;
-            opdStack.Push(new Operand(difference.ToString()));
+            double last = opdStack.Pop().ToNumber();
+            double previous = opdStack.Pop().ToNumber();
+            double difference = previous - last;
+            opdStack.Push(new Operand(difference));
             display.Draw();
         }
 
-        public void Product()
+        public void Multiply()
         {
             requireArguments(2);
-            decimal product = opdStack.Pop().ToNumber() * opdStack.Pop().ToNumber();
-            opdStack.Push(new Operand(product.ToString()));
+            double product = opdStack.Pop().ToNumber() * opdStack.Pop().ToNumber();
+            opdStack.Push(new Operand(product));
             display.Draw();
         }
 
-        public void Quotient()
+        public void Divide()
         {
             requireArguments(2);
-            decimal last = opdStack.Pop().ToNumber();
-            decimal previous = opdStack.Pop().ToNumber();
-            decimal quotient = previous / last;
-            opdStack.Push(new Operand(quotient.ToString()));
+            double last = opdStack.Pop().ToNumber();
+            double previous = opdStack.Pop().ToNumber();
+            double quotient = previous / last;
+            opdStack.Push(new Operand(quotient));
             display.Draw();
         }
 
         public void Negate()
         {
             requireArguments(1);
-            decimal negated = 0 - opdStack.Pop().ToNumber();
-            opdStack.Push(new Operand(negated.ToString()));
+            double negated = 0 - opdStack.Pop().ToNumber();
+            opdStack.Push(new Operand(negated));
             display.Draw();
         }
 
         public void Invert()
         {
             requireArguments(1);
-            decimal inverted = 1 / opdStack.Pop().ToNumber();
-            opdStack.Push(new Operand(inverted.ToString()));
+            double inverted = 1 / opdStack.Pop().ToNumber();
+            opdStack.Push(new Operand(inverted));
+            display.Draw();
+        }
+
+        public void DateAdd()
+        {
+            requireArguments(2);
+            double days = opdStack.Pop().ToNumber();
+            DateTime dateTime = opdStack.Pop().ToDateTime();
+            dateTime = dateTime.AddDays(days);
+            opdStack.Push(new Operand(dateTime));
             display.Draw();
         }
 

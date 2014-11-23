@@ -11,14 +11,26 @@ namespace RpnCalc
     {
         public string Text { get; set; }
 
-        public Operand(string s)
+        public Operand(object obj)
         {
-            this.Text = s;
+            if (obj is String)
+                this.Text = (string)obj;
+            else if (obj is double)
+                this.Text = String.Format("{0:0.#####}", (double)obj);
+            else if (obj is DateTime){
+                DateTime dt = (DateTime)obj;
+                this.Text = String.Format("{0}.{1}.{2}", dt.Year, dt.Month, dt.Day);
+            }
         }
 
-        public decimal ToNumber()
+        public double ToNumber()
         {
-           return decimal.Parse(Text);
+            return double.Parse(Text);
+        }
+
+        public DateTime ToDateTime()
+        {
+            return DateTime.ParseExact(Text, "yyyy.M.d", CultureInfo.CurrentCulture);
         }
     }
 }

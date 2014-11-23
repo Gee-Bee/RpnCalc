@@ -165,7 +165,7 @@
             this.button20.TabIndex = 19;
             this.button20.Text = "+";
             this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.sum_Click);
+            this.button20.Click += new System.EventHandler(this.add_Click);
             // 
             // button19
             // 
@@ -213,7 +213,7 @@
             this.button16.TabIndex = 15;
             this.button16.Text = "-";
             this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.difference_Click);
+            this.button16.Click += new System.EventHandler(this.subtract_Click);
             // 
             // button15
             // 
@@ -261,7 +261,7 @@
             this.button12.TabIndex = 11;
             this.button12.Text = "*";
             this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.product_Click);
+            this.button12.Click += new System.EventHandler(this.multiply_Click);
             // 
             // button11
             // 
@@ -309,7 +309,7 @@
             this.button8.TabIndex = 7;
             this.button8.Text = "/";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.quotient_Click);
+            this.button8.Click += new System.EventHandler(this.divide_Click);
             // 
             // button7
             // 
@@ -361,8 +361,9 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(52, 21);
             this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
+            this.button3.Text = "Date+";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.dateAdd_Click);
             // 
             // button2
             // 
@@ -399,8 +400,8 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Rpn Calculator";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

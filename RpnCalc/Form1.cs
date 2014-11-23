@@ -80,7 +80,6 @@ namespace RpnCalc
             switch (e.KeyCode)
             {   
                 case Keys.Enter:
-                    e.Handled = true;
                     calc.Push();
                     break;
                 case Keys.Back:
@@ -130,6 +129,11 @@ namespace RpnCalc
         private void dateAdd_MouseClick(object sender, MouseEventArgs e)
         {
             safely(calc.DateAdd);
+        }
+
+        private void dateSubtract_MouseClick(object sender, MouseEventArgs e)
+        {
+            safely(calc.DateSubtract);
         }
 
     }

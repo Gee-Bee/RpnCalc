@@ -130,6 +130,15 @@ namespace RpnCalc
             display.Draw();
         }
 
+        public void DateSubtract()
+        {
+            requireArguments(2);
+            DateTime last = opdStack.Pop().ToDateTime();
+            DateTime previous = opdStack.Pop().ToDateTime();
+            opdStack.Push(new Operand(previous.Subtract(last)));
+            display.Draw();
+        }
+
         private void requireArguments(int n, bool push = true) {
             if(push) Push();
             if(opdStack.Count < n) throw new ArgumentException("Too few arguments");

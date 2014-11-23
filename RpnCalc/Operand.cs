@@ -13,11 +13,15 @@ namespace RpnCalc
 
         public Operand(object obj)
         {
+            Type t = obj.GetType();
             if (obj is String)
                 this.Text = (string)obj;
             else if (obj is double)
                 this.Text = String.Format("{0:0.#####}", (double)obj);
-            else if (obj is DateTime){
+            else if (obj is TimeSpan)
+                this.Text = ((TimeSpan)obj).Days.ToString();
+            else if (obj is DateTime)
+            {
                 DateTime dt = (DateTime)obj;
                 this.Text = String.Format("{0}.{1}.{2}", dt.Year, dt.Month, dt.Day);
             }

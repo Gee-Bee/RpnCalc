@@ -104,6 +104,22 @@ namespace RpnCalc
             display.Draw();
         }
 
+        public void Negate()
+        {
+            requireArguments(1);
+            decimal negated = 0 - opdStack.Pop().ToNumber();
+            opdStack.Push(new Operand(negated.ToString()));
+            display.Draw();
+        }
+
+        public void Invert()
+        {
+            requireArguments(1);
+            decimal inverted = 1 / opdStack.Pop().ToNumber();
+            opdStack.Push(new Operand(inverted.ToString()));
+            display.Draw();
+        }
+
         private void requireArguments(int n, bool push = true) {
             if(push) Push();
             if(opdStack.Count < n) throw new ArgumentException("Too few arguments");

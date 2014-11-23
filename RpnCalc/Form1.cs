@@ -116,5 +116,15 @@ namespace RpnCalc
             safely(calc.Quotient);
         }
 
+        private void negate_Click(object sender, EventArgs e)
+        {
+            safely(calc.Negate);
+        }
+
+        private void invert_Click(object sender, EventArgs e)
+        {
+            safely(calc.Invert);
+        }
+
     }
 }

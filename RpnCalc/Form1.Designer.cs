@@ -31,7 +31,7 @@
             this.displayLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button23 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
+            this.decimalSeparatorBtn = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.button23, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.button22, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.decimalSeparatorBtn, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.button21, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.button20, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.button19, 2, 4);
@@ -131,16 +131,17 @@
             this.button23.UseVisualStyleBackColor = true;
             this.button23.Click += new System.EventHandler(this.enter_Click);
             // 
-            // button22
+            // decimalSeparatorBtn
             // 
-            this.button22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button22.Location = new System.Drawing.Point(61, 170);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(52, 32);
-            this.button22.TabIndex = 21;
-            this.button22.Text = ".";
-            this.button22.UseVisualStyleBackColor = true;
+            this.decimalSeparatorBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.decimalSeparatorBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.decimalSeparatorBtn.Location = new System.Drawing.Point(61, 170);
+            this.decimalSeparatorBtn.Name = "decimalSeparatorBtn";
+            this.decimalSeparatorBtn.Size = new System.Drawing.Size(52, 32);
+            this.decimalSeparatorBtn.TabIndex = 21;
+            this.decimalSeparatorBtn.Text = ".";
+            this.decimalSeparatorBtn.UseVisualStyleBackColor = true;
+            this.decimalSeparatorBtn.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button21
             // 
@@ -164,6 +165,7 @@
             this.button20.TabIndex = 19;
             this.button20.Text = "+";
             this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.sum_Click);
             // 
             // button19
             // 
@@ -211,6 +213,7 @@
             this.button16.TabIndex = 15;
             this.button16.Text = "-";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.difference_Click);
             // 
             // button15
             // 
@@ -258,6 +261,7 @@
             this.button12.TabIndex = 11;
             this.button12.Text = "*";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.product_Click);
             // 
             // button11
             // 
@@ -305,6 +309,7 @@
             this.button8.TabIndex = 7;
             this.button8.Text = "/";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.quotient_Click);
             // 
             // button7
             // 
@@ -313,8 +318,9 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(52, 29);
             this.button7.TabIndex = 6;
-            this.button7.Text = "button7";
+            this.button7.Text = "Reset";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.reset_Click);
             // 
             // button6
             // 
@@ -386,10 +392,13 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.displayLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Rpn Calculator";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -400,7 +409,7 @@
         private System.Windows.Forms.Label displayLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button decimalSeparatorBtn;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button19;

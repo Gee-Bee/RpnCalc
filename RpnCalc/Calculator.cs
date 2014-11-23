@@ -39,8 +39,7 @@ namespace RpnCalc
 
         public void Swap()
         {
-            Push();
-            if (opdStack.Count < 2) throw new ArgumentException("Too few arguments");
+            requireArguments(2);
             Operand last = opdStack.Pop();
             Operand previous = opdStack.Pop();
             opdStack.Push(last);
@@ -56,10 +55,58 @@ namespace RpnCalc
             }
             else
             {
-                if (opdStack.Count < 1) throw new ArgumentException("Too few arguments");
+                requireArguments(1, false);
                 opdStack.Pop();
             }
             display.Draw();
+        }
+
+        public void Reset()
+        {
+            opdStack.Clear();
+            Current = "";
+            display.Draw();
+        }
+
+        public void Sum()
+        {
+            requireArguments(2);
+            decimal sum = opdStack.Pop().ToNumber() + opdStack.Pop().ToNumber();
+            opdStack.Push(new Operand(sum.ToString()));
+            display.Draw();
+        }
+
+        public void Difference()
+        {
+            requireArguments(2);
+            decimal last = opdStack.Pop().ToNumber();
+            decimal previous = opdStack.Pop().ToNumber();
+            decimal difference = previous - last;
+            opdStack.Push(new Operand(difference.ToString()));
+            display.Draw();
+        }
+
+        public void Product()
+        {
+            requireArguments(2);
+            decimal product = opdStack.Pop().ToNumber() * opdStack.Pop().ToNumber();
+            opdStack.Push(new Operand(product.ToString()));
+            display.Draw();
+        }
+
+        public void Quotient()
+        {
+            requireArguments(2);
+            decimal last = opdStack.Pop().ToNumber();
+            decimal previous = opdStack.Pop().ToNumber();
+            decimal quotient = previous / last;
+            opdStack.Push(new Operand(quotient.ToString()));
+            display.Draw();
+        }
+
+        private void requireArguments(int n, bool push = true) {
+            if(push) Push();
+            if(opdStack.Count < n) throw new ArgumentException("Too few arguments");
         }
 
     }

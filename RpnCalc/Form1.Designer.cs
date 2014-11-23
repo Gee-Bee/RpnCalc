@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.displayLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button23 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
@@ -56,15 +56,17 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // displayLabel
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 153);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.displayLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.displayLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.displayLabel.Font = new System.Drawing.Font("Lucida Console", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.displayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.displayLabel.Location = new System.Drawing.Point(0, 0);
+            this.displayLabel.Name = "displayLabel";
+            this.displayLabel.Padding = new System.Windows.Forms.Padding(1, 6, 1, 6);
+            this.displayLabel.Size = new System.Drawing.Size(234, 153);
+            this.displayLabel.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -127,6 +129,7 @@
             this.button23.TabIndex = 22;
             this.button23.Text = "Enter";
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.enter_Click);
             // 
             // button22
             // 
@@ -149,6 +152,7 @@
             this.button21.TabIndex = 20;
             this.button21.Text = "0";
             this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button20
             // 
@@ -171,6 +175,7 @@
             this.button19.TabIndex = 18;
             this.button19.Text = "3";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button18
             // 
@@ -182,6 +187,7 @@
             this.button18.TabIndex = 17;
             this.button18.Text = "2";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button17
             // 
@@ -193,6 +199,7 @@
             this.button17.TabIndex = 16;
             this.button17.Text = "1";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button16
             // 
@@ -215,6 +222,7 @@
             this.button15.TabIndex = 14;
             this.button15.Text = "6";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button14
             // 
@@ -226,6 +234,7 @@
             this.button14.TabIndex = 13;
             this.button14.Text = "5";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button13
             // 
@@ -237,6 +246,7 @@
             this.button13.TabIndex = 12;
             this.button13.Text = "4";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button12
             // 
@@ -259,6 +269,7 @@
             this.button11.TabIndex = 10;
             this.button11.Text = "9";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button10
             // 
@@ -270,6 +281,7 @@
             this.button10.TabIndex = 9;
             this.button10.Text = "8";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button9
             // 
@@ -281,6 +293,7 @@
             this.button9.TabIndex = 8;
             this.button9.Text = "7";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.numbers_Click);
             // 
             // button8
             // 
@@ -310,8 +323,9 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(52, 29);
             this.button6.TabIndex = 5;
-            this.button6.Text = "button6";
+            this.button6.Text = "Drop";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.drop_Click);
             // 
             // button5
             // 
@@ -320,8 +334,9 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(52, 29);
             this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
+            this.button5.Text = "Swap";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.swap_Click);
             // 
             // button4
             // 
@@ -369,7 +384,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(234, 361);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.displayLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -382,7 +397,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label displayLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button22;

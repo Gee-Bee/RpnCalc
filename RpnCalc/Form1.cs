@@ -29,23 +29,23 @@ namespace RpnCalc
             catch (FormatException) { MessageBox.Show("Invalid operand format."); }
         }
 
-        private void numbers_Click(object sender, EventArgs e)
+        private void numbers_MouseClick(object sender, MouseEventArgs e)
         {
             Button btn = (Button) sender;
             calc.appendNumber(btn.Text);
         }
 
-        private void enter_Click(object sender, EventArgs e)
+        private void enter_MouseClick(object sender, MouseEventArgs e)
         {
             calc.Push();
         }
 
-        private void swap_Click(object sender, EventArgs e)
+        private void swap_MouseClick(object sender, MouseEventArgs e)
         {
             safely(calc.Swap);
         }
 
-        private void drop_Click(object sender, EventArgs e)
+        private void drop_MouseClick(object sender, MouseEventArgs e)
         {
             safely(calc.Drop);
         }
@@ -92,42 +92,42 @@ namespace RpnCalc
             }
         }
 
-        private void reset_Click(object sender, EventArgs e)
+        private void reset_MouseClick(object sender, MouseEventArgs e)
         {
             calc.Reset();
         }
 
-        private void add_Click(object sender, EventArgs e)
+        private void add_MouseClick(object sender, MouseEventArgs e)
         {
             safely(calc.Add);
         }
 
-        private void subtract_Click(object sender, EventArgs e)
+        private void subtract_MouseClick(object sender, MouseEventArgs e)
         {
             safely(calc.Subtract);
         }
 
-        private void multiply_Click(object sender, EventArgs e)
+        private void multiply_MouseClick(object sender, MouseEventArgs e)
         {
             safely(calc.Multiply);
         }
 
-        private void divide_Click(object sender, EventArgs e)
+        private void divide_MouseClick(object sender, MouseEventArgs e)
         {
             safely(calc.Divide);
         }
 
-        private void negate_Click(object sender, EventArgs e)
+        private void negate_MouseClick(object sender, MouseEventArgs e)
         {
             safely(calc.Negate);
         }
 
-        private void invert_Click(object sender, EventArgs e)
+        private void invert_MouseClick(object sender, MouseEventArgs e)
         {
             safely(calc.Invert);
         }
 
-        private void dateAdd_Click(object sender, EventArgs e)
+        private void dateAdd_MouseClick(object sender, MouseEventArgs e)
         {
             safely(calc.DateAdd);
         }
